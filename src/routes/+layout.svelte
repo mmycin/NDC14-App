@@ -4,6 +4,7 @@
   import "../app.css";
   import Navbar from "../lib/Components/Layouts/Navbar.svelte";
   import { IsTokenExpired } from "$lib/Utils/Token";
+  import "../app.css";
 
   export async function load() {
     try {
@@ -31,8 +32,8 @@
   <Navbar />
 
   <!-- Main Content Section -->
-  <main class="flex-grow flex justify-center items-center md:mx-20 ">
-    <slot  />
+  <main class="flex-grow flex justify-center items-center ">
+    <slot />
   </main>
 
   <Footer />

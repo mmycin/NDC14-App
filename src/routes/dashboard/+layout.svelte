@@ -80,8 +80,8 @@
         </nav>
 
         <!-- Main Content Area -->
-        <main  class="flex-1 pt-10 pb-24 md:pb-16 px-4 md:pl-72 md:-mr-20 md:pr-32 overflow-y-auto dark:bg-gray-900 border-l border-gray-700">
-            <slot />
+        <main  class="flex-1 mt-0 -mx-5 md:pb-16 px-4 md:pl-72 md:-mr-20 md:pr-32 overflow-y-auto dark:bg-gray-900 border-l border-gray-700">
+            <slot  />
         </main>
     </div>
 {:else}

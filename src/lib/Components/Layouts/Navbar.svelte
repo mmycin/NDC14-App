@@ -166,7 +166,9 @@
                 class:opacity-100={isMenuOpen}
                 style="font-family: 'Dancing Script', cursive;"
             >
-                Notre Dame College, Dhaka
+            <a href="/" class="group pointer-events-auto">
+                Notre Dame College, Dhaka 
+                </a>
             </div>
             
             <div class="px-4 pt-2 pb-4 space-y-3">
