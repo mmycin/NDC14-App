@@ -5,6 +5,10 @@
     import { getID } from "$lib/Utils/Token";
     import { onMount } from "svelte";
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let ID = 0;
     let data = {};
@@ -15,6 +19,7 @@
     let isChanged = false;
     let passwordMatch = true;
     let batchRollMatch = true;
+    
 
     onMount(async () => {
         try {
@@ -26,7 +31,7 @@
                 ID = userID;
 
                 // Fetch user data
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/id/${ID}`);
+                const response = await axios.get(`${(await API_URL).toString()}/users/id/${ID}`);
                 data = response.data.data;
                 formData = { ...data };
                 isLoading = false;
@@ -62,7 +67,7 @@
                 // Convert the batch to a number before sending
                 const updatedData = { ...formData, password, batch: Number(formData.batch) };
                 // Send updated data to the backend
-                await axios.put(`${import.meta.env.VITE_API_URL}/users/update/${ID}`, updatedData);
+                await axios.put(`${(await API_URL).toString()}/users/update/${ID}`, updatedData);
                 Notification('Profile updated successfully', "success");
                 goto("/dashboard/account");
                 isChanged = false; // reset after saving

@@ -8,6 +8,11 @@
     import { redirect } from '@sveltejs/kit';
     import axios from 'axios';
     import { onMount } from 'svelte';
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
+    
     export let data;
     let message = {};
 
@@ -33,7 +38,7 @@
     // Function to handle deletion
     async function deleteMessage() {
         try {
-            const url = `${import.meta.env.VITE_API_URL}/contacts/${data.slug}`;
+            const url = `${(await API_URL).toString()}/contacts/${data.slug}`;
             DeleteItem(url, "/dashboard/messages", window.location.href)
         } catch (error) {
             Notification('Error deleting message', "error");
@@ -43,7 +48,7 @@
 
     try {
         onMount(async () => {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/contacts/${data.slug}`);
+            const response = await axios.get(`${(await API_URL).toString()}/contacts/${data.slug}`);
             const res = await response.data.data;
             message = res;
         });

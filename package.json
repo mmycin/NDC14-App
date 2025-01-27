@@ -26,9 +26,14 @@
 		"vite": "^5.4.11"
 	},
 	"dependencies": {
+		"@capacitor-community/http": "^1.4.1",
 		"@capacitor/android": "^6.2.0",
+		"@capacitor/app": "^7.0.0",
+		"@capacitor/browser": "^7.0.0",
 		"@capacitor/cli": "^6.2.0",
 		"@capacitor/core": "7.0.0",
+		"@capacitor/device": "^7.0.0",
+		"@capacitor/filesystem": "^7.0.0",
 		"@capacitor/ios": "^7.0.0",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/adapter-static": "^3.0.8",

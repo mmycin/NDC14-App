@@ -1,10 +1,11 @@
-import { T as bind_props, N as pop, J as push } from "../../../../../chunks/index2.js";
+import { O as store_get, Q as unsubscribe_stores, T as bind_props, N as pop, J as push } from "../../../../../chunks/index3.js";
 import "../../../../../chunks/client.js";
 import axios from "axios";
 import Toastify from "toastify-js/src/toastify.js";
 /* empty css                             */
 import "../../../../../chunks/index.js";
 import { n as noop } from "../../../../../chunks/utils.js";
+import { B as BASE_URL } from "../../../../../chunks/api.js";
 import { e as escape_html } from "../../../../../chunks/escaping.js";
 function Notification(message, type = "success") {
   const backgroundColor = type === "success" ? "#28a745" : "#dc3545";
@@ -26,17 +27,20 @@ function Notification(message, type = "success") {
 }
 function _page($$payload, $$props) {
   push();
+  var $$store_subs;
+  let API_URL = "";
   let data = $$props["data"];
   let message = {};
   try {
     noop(async () => {
-      const response = await axios.get(`${"https://ndc14backend.onrender.com/api/v2"}/contacts/${data.slug}`);
+      const response = await axios.get(`${(await API_URL).toString()}/contacts/${data.slug}`);
       const res = await response.data.data;
       message = res;
     });
   } catch (e) {
     Notification("Error fetching message", "error");
   }
+  API_URL = store_get($$store_subs ??= {}, "$BASE_URL", BASE_URL);
   $$payload.out += `<div class="p-6 max-w-2xl mx-auto bg-gray-900 text-gray-200 rounded-lg shadow-lg svelte-2bl4np"><h1 class="text-2xl sm:text-3xl font-bold mb-6 text-center text-indigo-400">Message Details</h1> `;
   if (message.name) {
     $$payload.out += "<!--[-->";
@@ -46,6 +50,7 @@ function _page($$payload, $$props) {
     $$payload.out += `<p class="text-center text-gray-400">Loading message details...</p>`;
   }
   $$payload.out += `<!--]--></div>`;
+  if ($$store_subs) unsubscribe_stores($$store_subs);
   bind_props($$props, { data });
   pop();
 }

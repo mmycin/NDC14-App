@@ -6,6 +6,7 @@
     import { onMount } from "svelte";
     import { fade, slide } from "svelte/transition";
     import { IsTokenExpired, IsValidToken } from "$lib/Utils/Token";
+    import { BASE_URL } from "$lib/stores/api";
 
     let currentPath;
     $: currentPath = $page.url.pathname;
@@ -13,6 +14,7 @@
     let isMenuOpen = false;
     let isAuthenticated = false;
     let isScrolled = false;
+    let API_URL = "";
 
     // Handle scroll effects
     const handleScroll = () => {
@@ -29,7 +31,7 @@
         try {
             localStorage.removeItem("jwtToken");
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/users/logout`
+                `${(await API_URL).toString()}/users/logout`
             );
             if (response.status === 200) {
                 isAuthenticated = false;

@@ -6,6 +6,10 @@
     import { getID, IsTokenExpired, IsValidToken } from "$lib/Utils/Token";
     import Notification from "$lib/Utils/Notify";
     import { goto } from "$app/navigation";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let ID = 0;
     let data = {};
@@ -24,7 +28,7 @@
             if (token && IsValidToken(token) && !IsTokenExpired(token)) {
                 const ID = getID(token);
                 const response = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/users/id/${ID}`
+                    `${(await API_URL).toString()}/users/id/${ID}`
                 );
                 accountInfo = await response.data.data;
                 if (!accountInfo.isAdmin || !id) {
@@ -48,7 +52,7 @@
         }
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/users/id/${id}`
+                `${(await API_URL).toString()}/users/id/${id}`
             );
             data = await response.data.data;
             formData = { ...data };
@@ -110,7 +114,7 @@
                     isAdmin: isAdmin,
                 };
                 await axios.put(
-                    `${import.meta.env.VITE_API_URL}/users/update/${data.ID}`,
+                    `${(await API_URL).toString()}/users/update/${data.ID}`,
                     updatedData
                 );
                 Notification("Profile updated successfully", "success");

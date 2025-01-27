@@ -16,7 +16,10 @@
             "$stores/*": ["src/stores/*"], // Alias for Svelte stores
             "$styles/*": ["src/styles/*"] // Alias for global or reusable styles
         },
-        "outDir": "./dist" // Output directory for compiled files
+        "outDir": "./dist", // Output directory for compiled files
+        "module": "esnext", // Update module option to support import.meta
+        "target": "esnext", // Update target to support modern JS features
+        "moduleResolution": "node" // Enable Node-style module resolution
     },
     "include": [
         "src/**/*.ts", // Include TypeScript files in the `src` directory

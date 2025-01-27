@@ -5,13 +5,17 @@
     import { goto } from "$app/navigation";
     import { DeleteItem } from "$lib/Utils/Delete";
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let messages = [];
     let isLoading = true;
 
     async function fetchMessages() {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/contacts/`);
+            const response = await axios.get(`${(await API_URL).toString()}/contacts/`);
             messages = response.data.data;
             messages.sort((a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt));
         } catch (error) {
@@ -26,13 +30,11 @@
     const handleView = (id) => goto(`/dashboard/messages/${id}`);
     
     const handleDelete = async (id) => {
-        const url = `${import.meta.env.VITE_API_URL}/contacts/${id}`;
+        const url = `${(await API_URL).toString()}/contacts/${id}`;
         try {
             const success = await DeleteItem(url);
             if (success) {
                 fetchMessages();
-            } else {
-                Notification("Error deleting message", "error");
             }
         } catch (e) {
             Notification("Error deleting message", "error");
@@ -49,7 +51,7 @@
     };
 </script>
 
-<div class="min-h-screen text-gray-100 p-4 md:p-6">
+<div class="min-h-screen bg-gray-950 text-gray-100 p-4 md:p-6">
     <h1 class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
         Message Board
     </h1>
@@ -66,7 +68,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {#each messages as message (message.ID)}
                 <div class="group h-full">
-                    <div class="relative h-full bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 backdrop-blur-xl rounded-xl border border-gray-700/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-500/30">
+                    <div class="relative h-full bg-gray-900 rounded-xl border border-gray-800 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-500/30">
                         <!-- Hover Gradient Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
@@ -75,7 +77,7 @@
                                 <h2 class="text-lg font-semibold text-white line-clamp-1 flex-1 mr-3 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:via-blue-100 group-hover:to-white transition-all duration-300">
                                     {message.name}
                                 </h2>
-                                <span class="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full border border-blue-500/20 whitespace-nowrap backdrop-blur-sm">
+                                <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-blue-300 rounded-full border border-blue-500/20 whitespace-nowrap backdrop-blur-sm">
                                     {message.roll}
                                 </span>
                             </div>

@@ -5,6 +5,10 @@
     import { onMount } from "svelte";
     import Notification from "$lib/Utils/Notify";
     import { DeleteItem } from "$lib/Utils/Delete";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let notice = {};
     let isLoading = true;
@@ -13,17 +17,17 @@
     onMount(async () => {
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/notices/${data.slug}`
+                `${(await API_URL).toString()}/notices/${data.slug}`
             );
             notice = await response.data.data;
             const userRes = await axios.get(
-                `${import.meta.env.VITE_API_URL}/users/id/${notice.added_by}`
+                `${(await API_URL).toString()}/users/id/${notice.added_by}`
             );
             const user = await userRes.data.data;
             notice.added_by_name = user.fullName;
             if (notice.updated_by) {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/users/id/${notice.updated_by}`
+                    `${(await API_URL).toString()}/users/id/${notice.updated_by}`
                 );
                 const user = await res.data.data;
                 notice.updated_by_name = user.fullName;

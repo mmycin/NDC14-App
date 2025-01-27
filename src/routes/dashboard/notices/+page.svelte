@@ -6,6 +6,10 @@
     import { goto } from "$app/navigation";
     import { DeleteItem } from "$lib/Utils/Delete";
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let notices = [];
     let filteredNotices = [];
@@ -18,7 +22,7 @@
     async function fetchNotices() {
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/notices/`
+                `${(await API_URL).toString()}/notices/`
             );
             notices = response.data.data;
             notices.sort(
@@ -66,7 +70,7 @@
     };
 
     const handleDelete = async (id) => {
-        const url = `${import.meta.env.VITE_API_URL}/notices/${id}`;
+        const url = `${(await API_URL).toString()}/notices/${id}`;
         try {
             const success = await DeleteItem(url);
             if (success) {

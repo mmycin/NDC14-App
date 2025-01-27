@@ -1,11 +1,13 @@
-import { N as pop, R as stringify, J as push } from "../../../../../chunks/index2.js";
+import { O as store_get, Q as unsubscribe_stores, N as pop, R as stringify, J as push } from "../../../../../chunks/index3.js";
 /* empty css                       */
 /* empty css                             */
 import "../../../../../chunks/client.js";
+import { B as BASE_URL } from "../../../../../chunks/api.js";
 import { a as attr } from "../../../../../chunks/attributes.js";
 import { e as escape_html } from "../../../../../chunks/escaping.js";
 function _page($$payload, $$props) {
   push();
+  var $$store_subs;
   let fullName = "";
   let username = "";
   let email = "";
@@ -20,6 +22,7 @@ function _page($$payload, $$props) {
   let batchValid = true;
   let fbLinkValid = true;
   let validationErrors = { roll: "", batch: "", fbLink: "" };
+  store_get($$store_subs ??= {}, "$BASE_URL", BASE_URL);
   passwordMatch = password === confirmPassword;
   {
     const rollPattern = /^1[23][0-9]14([0-9]{3})$/;
@@ -74,6 +77,7 @@ function _page($$payload, $$props) {
     $$payload.out += "<!--[!-->";
   }
   $$payload.out += `<!--]--></div> <div class="text-center"><button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all duration-300 svelte-1acp57a"${attr("disabled", !passwordMatch || !rollValid || !batchValid || !fbLinkValid, true)}>Submit</button></div></form></div>`;
+  if ($$store_subs) unsubscribe_stores($$store_subs);
   pop();
 }
 export {

@@ -5,6 +5,10 @@
     import axios from "axios";
     import { IsValidToken, IsTokenExpired, getID } from "$lib/Utils/Token";
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     export let data;
     const noticeId = data.slug;
@@ -46,13 +50,13 @@
             getUserID();
             // Fetch user data
             const userResponse = await axios.get(
-                `${import.meta.env.VITE_API_URL}/users/id/${ID}`
+                `${(await API_URL).toString()}/users/id/${ID}`
             );
             name = userResponse.data.data.fullName;
 
             // Fetch notice data
             const noticeResponse = await axios.get(
-                `${import.meta.env.VITE_API_URL}/notices/${noticeId}`
+                `${(await API_URL).toString()}/notices/${noticeId}`
             );
             const noticeData = noticeResponse.data.data;
 
@@ -147,7 +151,7 @@
 
             // Update the notice with the updated file list
             await axios.put(
-                `${import.meta.env.VITE_API_URL}/notices/${noticeId}`,
+                `${(await API_URL).toString()}/notices/${noticeId}`,
                 updateData
             );
 
@@ -177,7 +181,7 @@
             };
             // Update the notice with the new file list (after deletion)
             await axios.put(
-                `${import.meta.env.VITE_API_URL}/notices/${noticeId}`,
+                `${(await API_URL).toString()}/notices/${noticeId}`,
                 updateData
             );
 

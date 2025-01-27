@@ -1,6 +1,10 @@
 <script>
     import Contact from "$lib/Components/Contact/Contact.svelte";
     import CurrentAdmins from "$lib/Components/Contact/CurrentAdmins.svelte";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 </script>
 
 <div class="container flex flex-col items-center justify-center md:mx-20 pb-5 bg-gradient-to-r from-gray-800 via-gray-900 to-black">

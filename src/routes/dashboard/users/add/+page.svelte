@@ -4,6 +4,10 @@
     import axios from 'axios';
     import Notification from '$lib/Utils/Notify';
     import { goto } from '$app/navigation';
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let fullName = '';
     let username = '';
@@ -81,7 +85,7 @@
             };
 
             try {
-                const response = await axios.post(`${import.meta.env.VITE_API_URL}/users/signup`, userData);
+                const response = await axios.post(`${(await API_URL).toString()}/users/signup`, userData);
                 Notification('User added successfully', "success");
                 // Reset form
                 fullName = '';

@@ -3,6 +3,10 @@
     import axios from "axios";
     import Notification from "$lib/Utils/Notify";
     import { IsValidToken, IsTokenExpired } from "$lib/Utils/Token";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let username = "";
     let roll = "";
@@ -28,7 +32,7 @@
 
         try {
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/users/login`,
+                `${(await API_URL).toString()}/users/login`,
                 { username, roll, password }
             );
             

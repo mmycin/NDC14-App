@@ -1,4 +1,4 @@
-import { T as bind_props } from "../../chunks/index2.js";
+import { T as bind_props } from "../../chunks/index3.js";
 import { e as escape_html } from "../../chunks/escaping.js";
 function _error($$payload, $$props) {
   let status = $$props["status"];

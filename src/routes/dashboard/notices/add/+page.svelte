@@ -5,6 +5,10 @@
     import axios from "axios";
     import { IsValidToken, IsTokenExpired, getID } from "$lib/Utils/Token";
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     let name = "";
     let title = "";
@@ -31,7 +35,7 @@
             ) {
                 ID = getID(token);
                 const response = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/users/id/${ID}`
+                    `${(await API_URL).toString()}/users/id/${ID}`
                 );
                 name = response.data.data.fullName;
             }
@@ -126,7 +130,7 @@
         // Submit the notice data along with uploaded file URLs
         try {
             await axios.post(
-                `${import.meta.env.VITE_API_URL}/notices/`,
+                `${(await API_URL).toString()}/notices/`,
                 noticeData,
                 { params: { page: 1 } }
             );

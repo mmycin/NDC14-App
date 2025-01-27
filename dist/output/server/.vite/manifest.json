@@ -3,6 +3,13 @@
     "file": "chunks/Token.js",
     "name": "Token"
   },
+  "_api.js": {
+    "file": "chunks/api.js",
+    "name": "api",
+    "imports": [
+      "_index2.js"
+    ]
+  },
   "_attributes.js": {
     "file": "chunks/attributes.js",
     "name": "attributes",
@@ -17,6 +24,10 @@
       "_exports.js",
       "_utils.js"
     ]
+  },
+  "_equality.js": {
+    "file": "chunks/equality.js",
+    "name": "equality"
   },
   "_escaping.js": {
     "file": "chunks/escaping.js",
@@ -34,6 +45,14 @@
     "file": "chunks/index2.js",
     "name": "index",
     "imports": [
+      "_utils.js",
+      "_equality.js"
+    ]
+  },
+  "_index3.js": {
+    "file": "chunks/index3.js",
+    "name": "index",
+    "imports": [
       "_utils.js"
     ]
   },
@@ -41,7 +60,8 @@
     "file": "chunks/internal.js",
     "name": "internal",
     "imports": [
-      "_index2.js",
+      "_index3.js",
+      "_equality.js",
       "_utils.js"
     ]
   },
@@ -49,7 +69,7 @@
     "file": "chunks/stores.js",
     "name": "stores",
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js"
     ]
   },
@@ -79,7 +99,7 @@
       "_internal.js",
       "_index.js",
       "_exports.js",
-      "_utils.js"
+      "_index2.js"
     ]
   },
   "src/routes/+error.svelte": {
@@ -88,7 +108,7 @@
     "src": "src/routes/+error.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_escaping.js"
     ],
     "css": [
@@ -101,15 +121,16 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js",
       "_stores.js",
+      "_api.js",
       "_attributes.js",
       "_escaping.js",
       "_Token.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.DvEtvIXQ.css"
+      "_app/immutable/assets/_layout.D9Cshmas.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -118,8 +139,9 @@
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_index2.js"
+      "_index3.js",
+      "_api.js",
+      "_attributes.js"
     ],
     "css": [
       "_app/immutable/assets/_page.D_-6Y5Fj.css"
@@ -131,9 +153,10 @@
     "src": "src/routes/contact/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index3.js",
+      "_api.js",
       "_attributes.js",
-      "_escaping.js",
-      "_index2.js"
+      "_escaping.js"
     ],
     "css": [
       "_app/immutable/assets/_page.DDicjy-S.css",
@@ -146,7 +169,7 @@
     "src": "src/routes/dashboard/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js"
     ],
     "css": [
@@ -159,10 +182,10 @@
     "src": "src/routes/dashboard/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js"
+      "_index3.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.BtMu-pYz.css"
+      "_app/immutable/assets/_page.Do8Hsu-q.css"
     ]
   },
   "src/routes/dashboard/account/+page.svelte": {
@@ -171,8 +194,9 @@
     "src": "src/routes/dashboard/account/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ]
   },
   "src/routes/dashboard/account/edit/+page.svelte": {
@@ -181,8 +205,9 @@
     "src": "src/routes/dashboard/account/edit/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ],
     "css": [
       "_app/immutable/assets/toastify.Dbbx3F5k.css"
@@ -194,8 +219,9 @@
     "src": "src/routes/dashboard/messages/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ],
     "css": [
       "_app/immutable/assets/_page.D1SRH5R4.css",
@@ -208,10 +234,11 @@
     "src": "src/routes/dashboard/messages/[slug]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js",
       "_index.js",
       "_utils.js",
+      "_api.js",
       "_escaping.js"
     ],
     "css": [
@@ -231,9 +258,10 @@
     "src": "src/routes/dashboard/notices/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js",
+      "_attributes.js"
     ],
     "css": [
       "_app/immutable/assets/toastify.Dbbx3F5k.css"
@@ -245,8 +273,9 @@
     "src": "src/routes/dashboard/notices/[slug]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ],
     "css": [
       "_app/immutable/assets/_page.Ckhz5N28.css",
@@ -265,10 +294,11 @@
     "src": "src/routes/dashboard/notices/add/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
+      "_index3.js",
+      "_client.js",
+      "_api.js",
       "_escaping.js",
-      "_index2.js",
-      "_client.js"
+      "_attributes.js"
     ],
     "css": [
       "_app/immutable/assets/toastify.Dbbx3F5k.css"
@@ -278,7 +308,11 @@
     "file": "entries/pages/dashboard/notices/edit/_page.svelte.js",
     "name": "entries/pages/dashboard/notices/edit/_page.svelte",
     "src": "src/routes/dashboard/notices/edit/+page.svelte",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_index3.js",
+      "_api.js"
+    ]
   },
   "src/routes/dashboard/notices/edit/[slug]/+page.svelte": {
     "file": "entries/pages/dashboard/notices/edit/_slug_/_page.svelte.js",
@@ -286,8 +320,9 @@
     "src": "src/routes/dashboard/notices/edit/[slug]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js",
+      "_api.js",
       "_escaping.js"
     ],
     "css": [
@@ -306,7 +341,8 @@
     "src": "src/routes/dashboard/users/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
+      "_api.js",
       "_attributes.js",
       "_escaping.js"
     ],
@@ -320,8 +356,9 @@
     "src": "src/routes/dashboard/users/[slug]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ],
     "css": [
       "_app/immutable/assets/_page.CzTyJRdk.css",
@@ -340,8 +377,9 @@
     "src": "src/routes/dashboard/users/add/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_client.js",
+      "_api.js",
       "_attributes.js",
       "_escaping.js"
     ],
@@ -356,7 +394,7 @@
     "src": "src/routes/dashboard/users/edit/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js"
+      "_index3.js"
     ]
   },
   "src/routes/dashboard/users/edit/+page.svelte": {
@@ -365,10 +403,11 @@
     "src": "src/routes/dashboard/users/edit/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
+      "_index3.js",
       "_stores.js",
       "_Token.js",
       "_client.js",
+      "_api.js",
       "_escaping.js"
     ],
     "css": [
@@ -393,10 +432,11 @@
     "src": "src/routes/login/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_index2.js",
+      "_index3.js",
       "_client.js",
-      "_Token.js"
+      "_Token.js",
+      "_api.js",
+      "_attributes.js"
     ],
     "css": [
       "_app/immutable/assets/_page.Erpw3KVx.css",
@@ -409,8 +449,9 @@
     "src": "src/routes/logout/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_client.js"
+      "_index3.js",
+      "_client.js",
+      "_api.js"
     ]
   }
 }

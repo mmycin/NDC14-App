@@ -1,9 +1,12 @@
-import { P as ensure_array_like, N as pop, J as push } from "../../../../../chunks/index2.js";
+import { O as store_get, P as ensure_array_like, Q as unsubscribe_stores, N as pop, J as push } from "../../../../../chunks/index3.js";
 import "../../../../../chunks/client.js";
 /* empty css                       */
 /* empty css                             */
+import { B as BASE_URL } from "../../../../../chunks/api.js";
 function _page($$payload, $$props) {
   push();
+  var $$store_subs;
+  store_get($$store_subs ??= {}, "$BASE_URL", BASE_URL);
   $$payload.out += `<div class="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8"><div class="max-w-3xl mx-auto"><div class="bg-gray-800 rounded-t-2xl p-6 shadow-xl text-center"><h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300 mb-2">Edit Profile</h1> <p class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Update your account details</p></div> `;
   {
     $$payload.out += "<!--[-->";
@@ -16,6 +19,7 @@ function _page($$payload, $$props) {
     $$payload.out += `<!--]--></div></div>`;
   }
   $$payload.out += `<!--]--></div></div>`;
+  if ($$store_subs) unsubscribe_stores($$store_subs);
   pop();
 }
 export {

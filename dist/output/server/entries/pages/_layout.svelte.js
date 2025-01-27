@@ -1,7 +1,8 @@
-import { O as store_get, P as ensure_array_like, Q as unsubscribe_stores, N as pop, R as stringify, J as push, S as slot, T as bind_props } from "../../chunks/index2.js";
+import { O as store_get, P as ensure_array_like, Q as unsubscribe_stores, N as pop, R as stringify, J as push, S as slot, T as bind_props } from "../../chunks/index3.js";
 import "clsx";
 import "../../chunks/client.js";
 import { p as page } from "../../chunks/stores.js";
+import "../../chunks/api.js";
 import { a as attr } from "../../chunks/attributes.js";
 import { e as escape_html } from "../../chunks/escaping.js";
 import { I as IsTokenExpired } from "../../chunks/Token.js";

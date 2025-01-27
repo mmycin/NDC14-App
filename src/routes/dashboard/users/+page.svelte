@@ -9,11 +9,16 @@
     let batches = [];
     let searchQuery = "";
     let showAdminsOnly = false;
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
+    
 
     const fetchUsers = async () => {
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/users/`
+                `${(await API_URL).toString()}/users/`
             );
             users = response.data.data.sort((a, b) => b.batch - a.batch);
             batches = [...new Set(users.map((user) => user.batch))].sort(
@@ -44,18 +49,18 @@
 </script>
 
 <div
-    class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100"
+    class="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-gray-100"
 >
-    <div class="container mx-auto px-3 py-4">
+    <div class="container mx-auto px-4 py-8">
         <!-- Animated Header with Gradient Underline -->
-        <div class="text-center mb-6 relative">
+        <div class="text-center mb-8 relative">
             <h1
-                class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient pb-1"
+                class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient pb-1"
             >
                 Captains of Group-14
             </h1>
             <div
-                class="h-0.5 w-32 mx-auto mt-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
+                class="h-0.5 w-40 mx-auto mt-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
             ></div>
         </div>
 
@@ -88,7 +93,7 @@
         </div>
 
         <!-- Enhanced Filters Container -->
-        <div class="max-w-3xl mx-auto mb-6 space-y-4">
+        <div class="max-w-3xl mx-auto mb-8 space-y-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <!-- Modern Search Input with Animation -->
                 <div class="relative group">
@@ -192,7 +197,7 @@
             </div>
         {:else}
             <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-4xl mx-auto"
+                class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto"
             >
                 {#each filteredUsers as user}
                     <div class="group relative">
@@ -203,12 +208,12 @@
 
                         <!-- Card Content -->
                         <div
-                            class="relative bg-gray-800/90 backdrop-blur-xl rounded-xl p-4 border border-gray-700/50 transition-all duration-300 group-hover:border-blue-500/50"
+                            class="relative bg-gray-800/90 backdrop-blur-xl rounded-xl p-6 border border-gray-700/50 transition-all duration-300 group-hover:border-blue-500/50"
                         >
                             <!-- Admin Badge -->
                             {#if user.isAdmin}
                                 <div
-                                    class="absolute top-3 right-3 px-2 py-1 bg-blue-500/20 backdrop-blur-sm rounded-full flex items-center space-x-1"
+                                    class="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 backdrop-blur-sm rounded-full flex items-center space-x-1"
                                 >
                                     <span class="text-yellow-300 text-xs"
                                         >★</span
@@ -223,10 +228,10 @@
                             <div class="flex flex-col items-center">
                                 <!-- Enhanced Avatar -->
                                 <div
-                                    class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-0.5 mb-3 transform transition-all duration-300 group-hover:scale-110"
+                                    class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-0.5 mb-4 transform transition-all duration-300 group-hover:scale-110"
                                 >
                                     <div
-                                        class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-lg font-bold text-white"
+                                        class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-2xl font-bold text-white"
                                     >
                                         {user.fullName
                                             .split(" ")
@@ -235,7 +240,7 @@
                                     </div>
                                 </div>
 
-                                <h4 class="text-lg font-bold text-white mb-2">
+                                <h4 class="text-xl font-bold text-white mb-2">
                                     {user.fullName}
                                 </h4>
 

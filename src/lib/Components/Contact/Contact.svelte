@@ -6,6 +6,7 @@
     import { onMount } from "svelte";
     // @ts-ignore
     import Notification from "$lib/Utils/Notify";
+    import { BASE_URL } from "$lib/stores/api";
  
 
     let name = "";
@@ -13,6 +14,7 @@
     let roll = "";
     let message = "";
     let isSubmitting = false;
+    let API_URL = ""
 
     // Show toast notification
     // @ts-ignore
@@ -25,15 +27,15 @@
         message = "";
     };
 
+    $: API_URL = $BASE_URL
     const submitForm = async () => {
         if (isSubmitting) return;
 
         isSubmitting = true;
-
         try {
-            // @ts-ignore
+            // @ts-ignore            
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/contacts/`,
+                `${(await API_URL).toString()}/contacts/`,
                 {
                     name,
                     email,

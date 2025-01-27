@@ -2,6 +2,11 @@
     // @ts-nocheck
     import { onMount } from "svelte";
     import axios from "axios";
+    import CheckForUpdates from "$lib/Utils/Update";
+    import GetUrls from "$lib/Utils/Data";
+    import { BASE_URL } from "$lib/stores/api";
+    let API_URL = "";
+    $: API_URL = $BASE_URL;
 
     let allNotices = [];
     let filteredNotices = [];
@@ -18,7 +23,7 @@
         loading = true;
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/notices/`,
+                `${(await API_URL).toString()}/notices/`,
                 { params: { page } }
             );
             allNotices = [...response.data.data];
@@ -75,10 +80,10 @@
         return null;
     };
 
-    onMount(() => {
+    onMount(async () => {
         const isPageReload = window.performance.navigation.type === 1;
         fetchNotices();
-
+        CheckForUpdates();
         if (fetchNotices.length == 0) {
             fetchText = "No notices found.";
         }

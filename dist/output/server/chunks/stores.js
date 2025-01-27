@@ -1,4 +1,4 @@
-import { V as getContext } from "./index2.js";
+import { V as getContext } from "./index3.js";
 import "./client.js";
 const getStores = () => {
   const stores = getContext("__svelte__");

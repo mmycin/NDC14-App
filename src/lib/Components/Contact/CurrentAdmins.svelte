@@ -4,11 +4,15 @@
     import axios from "axios";
     import { onMount } from "svelte";
     import { adminsStore } from "$lib/Utils/Store"; // Import the store
+    import { BASE_URL } from "$lib/stores/api";
 
     let admins = [];
     let latestBatchUsers = [];
     let secondLatestBatchUsers = [];
     let isLoading = true; // Loading state
+    let API_URL = "";
+
+    $: API_URL = $BASE_URL
 
     const fetchUsers = async () => {
         try {
@@ -20,7 +24,7 @@
                 admins = cachedAdmins;
             } else {
                 const response = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/users/`
+                    `${(await API_URL).toString()}/users/`
                 );
                 admins = response.data.data;
                 adminsStore.set(admins); // Update the store with fetched data
