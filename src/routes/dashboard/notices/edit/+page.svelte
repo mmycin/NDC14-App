@@ -1,4 +1,5 @@
 <script>
+    // @ts-nocheck
     import { BASE_URL } from "$lib/stores/api";
     let API_URL = "";
 

@@ -22,19 +22,44 @@
     const fetchNotices = async (page = 1) => {
         loading = true;
         try {
-            const response = await axios.get(
-                `${(await API_URL).toString()}/notices/`,
-                { params: { page } }
-            );
-            allNotices = [...response.data.data];
-            allNotices.sort((a, b) => b.ID - a.ID);
-            totalPages = Math.ceil(response.data.count / 5);
-            applyFilters();
+            // Check if data exists in localStorage
+            if (localStorage.getItem("notices") !== null) {
+                allNotices = JSON.parse(localStorage.getItem("notices"));
+                totalPages = Math.ceil(allNotices.length / 5);
+                applyFilters();
+                setTimeout(() => {
+                    loading = false;
+                }, 1000);
+            }
+
+            // Try fetching from the API
+            try {
+                const response = await axios.get(
+                    `${(await API_URL).toString()}/notices/`,
+                    { params: { page } }
+                );
+
+                allNotices = [...response.data.data];
+                allNotices.sort((a, b) => b.ID - a.ID);
+                totalPages = Math.ceil(response.data.count / 5);
+                applyFilters();
+            } catch (error) {
+                console.error("Error fetching notices:", error);
+            }
         } catch (error) {
-            fetchText =
-                "Unable to fetch notices. Please make sure you are connected to the internet.";
             console.error("Error fetching notices:", error);
+
+            // If there's no internet or backend failure, use localStorage data
+            if (localStorage.getItem("notices") !== null) {
+                allNotices = JSON.parse(localStorage.getItem("notices"));
+                totalPages = Math.ceil(allNotices.length / 5);
+                applyFilters();
+            } else {
+                fetchText =
+                    "Unable to fetch notices. Please check your connection.";
+            }
         }
+        localStorage.setItem("notices", JSON.stringify(allNotices));
         loading = false;
     };
 
@@ -248,8 +273,7 @@
                             No notices found
                         </p>
                         <p class="text-slate-500">
-                            Try adjusting your filters or search terms or check
-                            your internet.
+                            Try adjusting your filters or search terms.
                         </p>
                     </div>
                 </div>

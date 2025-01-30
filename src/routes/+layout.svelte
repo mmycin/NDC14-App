@@ -4,7 +4,7 @@
   import "../app.css";
   import Navbar from "../lib/Components/Layouts/Navbar.svelte";
   import { IsTokenExpired } from "$lib/Utils/Token";
-  import "../app.css";
+  // import "../app.css";
 
   export async function load() {
     try {

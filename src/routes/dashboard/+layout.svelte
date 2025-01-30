@@ -1,6 +1,5 @@
-
-
 <script>
+    // @ts-nocheck
     import { goto } from "$app/navigation";
     import { IsTokenExpired, IsValidToken } from "$lib/Utils/Token";
     import { onMount } from "svelte";
