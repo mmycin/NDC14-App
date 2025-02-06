@@ -35,6 +35,7 @@ declare module '$env/static/private' {
 	export const BUN_INSPECT_CONNECT_TO: string;
 	export const ChocolateyLastPathUpdate: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
+	export const CMD_DURATION_MS: string;
 	export const COLORTERM: string;
 	export const CommonProgramFiles: string;
 	export const CommonProgramW6432: string;
@@ -48,8 +49,8 @@ declare module '$env/static/private' {
 	export const CONDA_PYTHON_EXE: string;
 	export const CONDA_SHLVL: string;
 	export const CURSOR_TRACE_ID: string;
+	export const DIRS_POSITION: string;
 	export const DriverData: string;
-	export const EFC_11284: string;
 	export const gcc: string;
 	export const GIT_ASKPASS: string;
 	export const GoLand: string;
@@ -57,11 +58,13 @@ declare module '$env/static/private' {
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const LANG: string;
+	export const LAST_EXIT_CODE: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
 	export const LUA_DEV: string;
 	export const LUA_PATH: string;
 	export const NODE: string;
+	export const NODE_ENV: string;
 	export const npm_config_local_prefix: string;
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
@@ -71,8 +74,12 @@ declare module '$env/static/private' {
 	export const npm_package_name: string;
 	export const npm_package_version: string;
 	export const NUMBER_OF_PROCESSORS: string;
+	export const NU_LOG_DATE_FORMAT: string;
+	export const NU_LOG_FORMAT: string;
+	export const NU_VERSION: string;
 	export const NVM_HOME: string;
 	export const NVM_SYMLINK: string;
+	export const OLDPWD: string;
 	export const OneDrive: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
@@ -87,6 +94,7 @@ declare module '$env/static/private' {
 	export const ProgramW6432: string;
 	export const PSModulePath: string;
 	export const PUBLIC: string;
+	export const PWD: string;
 	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
@@ -104,11 +112,13 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const VSCODE_INJECTION: string;
 	export const windir: string;
+	export const WSLENV: string;
+	export const WT_PROFILE_ID: string;
+	export const WT_SESSION: string;
 	export const ZES_ENABLE_SYSMAN: string;
 	export const _CONDA_EXE: string;
 	export const _CONDA_ROOT: string;
 	export const __PSLockDownPolicy: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -149,6 +159,7 @@ declare module '$env/dynamic/private' {
 		BUN_INSPECT_CONNECT_TO: string;
 		ChocolateyLastPathUpdate: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
+		CMD_DURATION_MS: string;
 		COLORTERM: string;
 		CommonProgramFiles: string;
 		CommonProgramW6432: string;
@@ -162,8 +173,8 @@ declare module '$env/dynamic/private' {
 		CONDA_PYTHON_EXE: string;
 		CONDA_SHLVL: string;
 		CURSOR_TRACE_ID: string;
+		DIRS_POSITION: string;
 		DriverData: string;
-		EFC_11284: string;
 		gcc: string;
 		GIT_ASKPASS: string;
 		GoLand: string;
@@ -171,11 +182,13 @@ declare module '$env/dynamic/private' {
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		LANG: string;
+		LAST_EXIT_CODE: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
 		LUA_DEV: string;
 		LUA_PATH: string;
 		NODE: string;
+		NODE_ENV: string;
 		npm_config_local_prefix: string;
 		npm_config_user_agent: string;
 		npm_execpath: string;
@@ -185,8 +198,12 @@ declare module '$env/dynamic/private' {
 		npm_package_name: string;
 		npm_package_version: string;
 		NUMBER_OF_PROCESSORS: string;
+		NU_LOG_DATE_FORMAT: string;
+		NU_LOG_FORMAT: string;
+		NU_VERSION: string;
 		NVM_HOME: string;
 		NVM_SYMLINK: string;
+		OLDPWD: string;
 		OneDrive: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
@@ -201,6 +218,7 @@ declare module '$env/dynamic/private' {
 		ProgramW6432: string;
 		PSModulePath: string;
 		PUBLIC: string;
+		PWD: string;
 		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
@@ -218,11 +236,13 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_IPC_HANDLE: string;
 		VSCODE_INJECTION: string;
 		windir: string;
+		WSLENV: string;
+		WT_PROFILE_ID: string;
+		WT_SESSION: string;
 		ZES_ENABLE_SYSMAN: string;
 		_CONDA_EXE: string;
 		_CONDA_ROOT: string;
 		__PSLockDownPolicy: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

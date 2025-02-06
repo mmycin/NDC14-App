@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     import Contact from "$lib/Components/Contact/Contact.svelte";
     import CurrentAdmins from "$lib/Components/Contact/CurrentAdmins.svelte";
     import { BASE_URL } from "$lib/stores/api";
-    let API_URL = "";
+    let API_URL: any = "";
 
     $: API_URL = $BASE_URL
 </script>

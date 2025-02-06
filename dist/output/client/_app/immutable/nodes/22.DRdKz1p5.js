@@ -1,1 +1,0 @@
-import"../chunks/Bg9kRutz.js";import"../chunks/DUhZXiNj.js";import{p as t,c as p}from"../chunks/DJc_ZBf1.js";import{i as r}from"../chunks/BLuxHWBz.js";import{g as m}from"../chunks/C9ThMXTw.js";function f(a,o){t(o,!1),localStorage.removeItem("jwtToken"),m("/login"),r(),p()}export{f as component};

@@ -10,7 +10,7 @@
     import { BASE_URL } from "$lib/stores/api";
     let API_URL = "";
 
-    $: API_URL = $BASE_URL
+    $: API_URL = $BASE_URL;
 
     export let data;
 
@@ -146,7 +146,7 @@
 
                 <!-- Information Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {#each [{ label: "Name", value: info.fullName, icon: "👤" }, { label: "Username", value: info.username, icon: "🔖" }, { label: "Email Address", value: info.email, isEmail: true, icon: "📧" }, { label: "Roll Number", value: info.roll, icon: "🔢" }, { label: "Batch", value: info.batch, icon: "👥" }, { label: "Phone Number", value: info.phone.startsWith("+88") ? info.phone : "+88" + info.phone, icon: "📱" }, { label: "Facebook Profile", value: info.fbLink, isLink: true, icon: "💬" }] as field}
+                    {#each [{ label: "Name", value: info.fullName, icon: "👤" }, { label: "Username", value: info.username, icon: "🔖" }, { label: "Email Address", value: info.email, isEmail: true, icon: "📧" }, { label: "Roll Number", value: info.roll, icon: "🔢" }, { label: "Batch", value: info.batch, icon: "👥" }, { label: "Phone Number", value: info.phone.startsWith("+88") ? info.phone : "+88" + info.phone, icon: "📱", isPhone: true }, { label: "Facebook Profile", value: info.fbLink, isLink: true, icon: "💬" }] as field}
                         <div class="group relative">
                             <div
                                 class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur opacity-30 group-hover:opacity-75 transition duration-300"
@@ -172,6 +172,13 @@
                                         href={field.value}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        class="text-lg text-blue-400 hover:text-blue-300 transition-colors duration-200 break-all hover:underline"
+                                    >
+                                        {field.value}
+                                    </a>
+                                {:else if field.isPhone}
+                                    <a
+                                        href={`tel:${field.value}`}
                                         class="text-lg text-blue-400 hover:text-blue-300 transition-colors duration-200 break-all hover:underline"
                                     >
                                         {field.value}

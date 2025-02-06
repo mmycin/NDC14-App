@@ -131,11 +131,15 @@
                     <span class="text-gray-400 w-full sm:w-1/3 mb-2 sm:mb-0"
                         >Phone Number</span
                     >
-                    <span class="text-white font-medium text-lg"
-                        >{data.phone.startsWith("+88")
-                            ? data.phone
-                            : "+88" + data.phone || "N/A"}</span
-                    >
+                    <a
+                            href={`tel:${data.phone}`}
+                            target="_blank"
+                            class="text-blue-400 hover:underline"
+                        >
+                            {data.phone.startsWith("+88")
+                                ? data.phone
+                                : "+88" + data.phone}
+                        </a>
                 </div>
 
                 <!-- Batch -->
