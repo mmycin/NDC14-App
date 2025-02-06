@@ -17,10 +17,21 @@
 
     $: username = username.trim();
     $: roll = roll.trim();
+    $: roll = validateRoll(roll);
+
+    function validateRoll(roll: string) {
+        // Only allow numeric characters
+        const numericValue = roll.replace(/[^0-9]/g, '');
+        if (numericValue !== roll) {
+            // If non-numeric characters were removed, update the roll value
+            roll = numericValue;
+        }
+        return numericValue;
+    }
 
     if (typeof window !== 'undefined') {
         const token = localStorage.getItem("jwtToken");
-        if (token && IsValidToken(token) && token.length > 0 && !IsTokenExpired(token)) {
+        if (token && IsValidToken(token) && !IsTokenExpired(token)) {
             goto("/");
         }
     } else {
@@ -91,6 +102,7 @@
                                 autocomplete="on"
                                 class="w-full px-5 py-4 rounded-xl bg-gray-700/50 text-gray-100 border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 placeholder-gray-400 transition-all duration-200 group-hover:border-gray-500"
                                 placeholder="College Roll Number"
+                                maxlength="8"
                                 required
                             />
                             <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,6 +116,7 @@
                                 bind:value={password}
                                 class="w-full px-5 py-4 rounded-xl bg-gray-700/50 text-gray-100 border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 placeholder-gray-400 transition-all duration-200 group-hover:border-gray-500"
                                 placeholder="Password"
+                                minlength="4"
                                 required
                             />
                             <button

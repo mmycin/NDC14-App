@@ -16,6 +16,8 @@
     let isScrolled = false;
     let API_URL = "";
 
+    $: API_URL = $BASE_URL
+
     // Handle scroll effects
     const handleScroll = () => {
         isScrolled = window.scrollY > 20;
@@ -35,6 +37,7 @@
             );
             if (response.status === 200) {
                 isAuthenticated = false;
+                localStorage.getItem("jwtToken");
                 goto("/login");
             }
         } catch (error) {

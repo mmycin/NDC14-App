@@ -19,15 +19,25 @@
             let cachedAdmins;
             adminsStore.subscribe((value) => (cachedAdmins = value))();
 
+            
             // Use cached data if available
             if (cachedAdmins.length > 0) {
                 admins = cachedAdmins;
             } else {
-                const response = await axios.get(
-                    `${(await API_URL).toString()}/users/`
-                );
-                admins = response.data.data;
-                adminsStore.set(admins); // Update the store with fetched data
+                if(localStorage.getItem("admins")) {
+                    admins = JSON.parse(localStorage.getItem("admins"));
+                    isLoading = false;
+                }
+
+                try {
+                    const response = await axios.get(
+                        `${(await API_URL).toString()}/users/`
+                    );
+                    admins = response.data.data;
+                    localStorage.setItem("admins", JSON.stringify(admins))
+                } catch (error) {
+                    console.error("Error fetching admins:", error);
+                }
             }
 
             // Find the two greatest batch values
@@ -93,6 +103,7 @@
     {/if}
 </section>
 
+{#if secondLatestBatchUsers.length > 0}
 <section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 py-16 px-6 w-full flex flex-col items-center">
     <h1 class="text-4xl font-extrabold text-center mb-6 text-white leading-tight">
         Captains of Batch {secondLatestBatchUsers[0]?.batch || ""}
@@ -132,6 +143,7 @@
         </div>
     {/if}
 </section>
+{/if}
 
 <style>
     section {

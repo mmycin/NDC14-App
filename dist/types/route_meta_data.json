@@ -1,63 +1,28 @@
 {
-	"/": [
-		"src/routes/+layout.ts",
-		"src/routes/+layout.ts"
-	],
-	"/contact": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard": [
-		"src/routes/+layout.ts",
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/account": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/account/edit": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/messages": [
-		"src/routes/+layout.ts"
-	],
+	"/": [],
+	"/contact": [],
+	"/dashboard": [],
+	"/dashboard/account": [],
+	"/dashboard/account/edit": [],
+	"/dashboard/messages": [],
 	"/dashboard/messages/[slug]": [
-		"src/routes/dashboard/messages/[slug]/+page.ts",
-		"src/routes/+layout.ts"
+		"src/routes/dashboard/messages/[slug]/+page.ts"
 	],
-	"/dashboard/notices": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/notices/add": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/notices/edit": [
-		"src/routes/+layout.ts"
-	],
+	"/dashboard/notices": [],
+	"/dashboard/notices/add": [],
+	"/dashboard/notices/edit": [],
 	"/dashboard/notices/edit/[slug]": [
-		"src/routes/dashboard/notices/edit/[slug]/+page.ts",
-		"src/routes/+layout.ts"
+		"src/routes/dashboard/notices/edit/[slug]/+page.ts"
 	],
 	"/dashboard/notices/[slug]": [
-		"src/routes/dashboard/notices/[slug]/+page.ts",
-		"src/routes/+layout.ts"
+		"src/routes/dashboard/notices/[slug]/+page.ts"
 	],
-	"/dashboard/users": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/users/add": [
-		"src/routes/+layout.ts"
-	],
-	"/dashboard/users/edit": [
-		"src/routes/+layout.ts",
-		"src/routes/+layout.ts"
-	],
+	"/dashboard/users": [],
+	"/dashboard/users/add": [],
+	"/dashboard/users/edit": [],
 	"/dashboard/users/[slug]": [
-		"src/routes/dashboard/users/[slug]/+page.ts",
-		"src/routes/+layout.ts"
+		"src/routes/dashboard/users/[slug]/+page.ts"
 	],
-	"/login": [
-		"src/routes/+layout.ts"
-	],
-	"/logout": [
-		"src/routes/+layout.ts"
-	]
+	"/login": [],
+	"/logout": []
 }

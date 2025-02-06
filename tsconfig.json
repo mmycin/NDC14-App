@@ -26,7 +26,7 @@
         "src/**/*.ts", // Include TypeScript files in the `src` directory
         "src/**/*.js", // Include JavaScript files in the `src` directory
         "src/**/*.svelte" // Include Svelte files
-    ],
+, "static/tailwind.js"    ],
     "exclude": [
         "node_modules", // Exclude dependencies
         "dist", // Exclude output directory
