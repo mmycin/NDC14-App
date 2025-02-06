@@ -25,6 +25,19 @@
                 `${(await API_URL).toString()}/notices/`
             );
             notices = response.data.data;
+            notices = notices.map(notice => {
+                if (notice.date) {
+                    const [day, month, year] = notice.date.split('/');
+                    const noticeDate = new Date(year, month - 1, day); // month is 0-based
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0); // Reset time part for date comparison
+                    if (noticeDate > today) {
+                        return { ...notice, isScheduled: true };
+                    }
+                }
+                return notice;
+            });
+
             notices.sort(
                 (a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt)
             );
@@ -168,11 +181,18 @@
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center text-xs text-gray-400 mb-4">
-                                    <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    {formatDate(notice.date)}
+                                <div class="flex items-center justify-between text-xs mb-4">
+                                    <div class="flex items-center text-gray-400 font-medium">
+                                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        {formatDate(notice.date)}
+                                    </div>
+                                    {#if notice.isScheduled}
+                                        <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-400 rounded-md border border-purple-500/20">
+                                            Scheduled
+                                        </span>
+                                    {/if}
                                 </div>
 
                                 <div class="flex flex-wrap gap-2 justify-center items-center">

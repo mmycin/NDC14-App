@@ -182,7 +182,8 @@
 
 <style>
     :global(body) {
-        @apply bg-gray-900 text-gray-100;
+        background-color: #333;
+        color: #fff;
     }
 
     @keyframes pulse {

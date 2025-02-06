@@ -40,6 +40,19 @@
                 );
 
                 allNotices = [...response.data.data];
+                allNotices = allNotices.map(notice => {
+                if (notice.date) {
+                    const [day, month, year] = notice.date.split('/');
+                    const noticeDate = new Date(year, month - 1, day); // month is 0-based
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0); // Reset time part for date comparison
+                    if (noticeDate > today) {
+                        return { ...notice, isScheduled: true };
+                    }
+                }
+                return notice;
+            });
+
                 allNotices.sort((a, b) => b.ID - a.ID);
                 totalPages = Math.ceil(response.data.count / 5);
                 applyFilters();
@@ -279,6 +292,7 @@
                 </div>
             {:else}
                 {#each filteredNotices as notice, index (notice.ID + "-" + index)}
+                {#if !notice.isScheduled}
                     <div
                         class="group transform transition-all duration-300 hover:-translate-y-1"
                     >
@@ -368,6 +382,7 @@
                             </div>
                         </div>
                     </div>
+                    {/if}
                 {/each}
             {/if}
         </div>
@@ -405,9 +420,6 @@
         scroll-behavior: smooth;
     }
 
-    :global(body) {
-        @apply bg-slate-950;
-    }
 
     img {
         max-height: 600px;

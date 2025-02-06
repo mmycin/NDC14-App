@@ -218,7 +218,7 @@
     /* Custom scroll behavior for the mobile menu */
     .mobile-menu {
         scrollbar-width: thin;
-        scrollbar-color: theme("colors.gray.600") theme("colors.gray.800");
+        scrollbar-color: #4B5563 #1F2937;
     }
 
     .mobile-menu::-webkit-scrollbar {
@@ -226,11 +226,11 @@
     }
 
     .mobile-menu::-webkit-scrollbar-track {
-        background: theme("colors.gray.800");
+        background: #1F2937;
     }
 
     .mobile-menu::-webkit-scrollbar-thumb {
-        background-color: theme("colors.gray.600");
+        background-color: #4B5563;
         border-radius: 20px;
     }
 </style>

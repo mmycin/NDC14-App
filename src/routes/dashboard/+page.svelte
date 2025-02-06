@@ -41,7 +41,7 @@
             <!-- Header Section -->
             <div class="text-center animate-fade-in">
                 <h1
-                    class="text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-4 font-display"
+                    class="text-3xl sm:text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-4 font-display"
                 >
                     Welcome to Group-14
                 </h1>
@@ -102,7 +102,7 @@
         font-size: 1.2em;
         opacity: 1;
         animation: typedjsBlink 0.7s infinite;
-        color: theme("colors.indigo.400");
+        color: #818cf8;
     }
 
     @keyframes typedjsBlink {
@@ -125,6 +125,7 @@
     }
 
     .bg-gradient-to-b {
+        background: theme(colors.blue.400, #111827);
         background-size: 200% 200%;
         animation: gradient-background 10s ease infinite;
     }

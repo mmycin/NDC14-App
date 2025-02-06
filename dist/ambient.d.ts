@@ -26,9 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const HOST: string;
-	export const PORT: string;
-	export const VITE_API_URL: string;
 	export const ALLUSERSPROFILE: string;
 	export const Anaconda: string;
 	export const ANDROID_HOME: string;
@@ -52,9 +49,7 @@ declare module '$env/static/private' {
 	export const CURSOR_TRACE_ID: string;
 	export const DIRS_POSITION: string;
 	export const DriverData: string;
-	export const EFC_10884: string;
-	export const FPS_BROWSER_APP_PROFILE_STRING: string;
-	export const FPS_BROWSER_USER_PROFILE_STRING: string;
+	export const EFC_11284: string;
 	export const gcc: string;
 	export const GIT_ASKPASS: string;
 	export const GoLand: string;
@@ -68,7 +63,6 @@ declare module '$env/static/private' {
 	export const LUA_DEV: string;
 	export const LUA_PATH: string;
 	export const NODE: string;
-	export const NODE_ENV: string;
 	export const npm_config_local_prefix: string;
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
@@ -119,6 +113,7 @@ declare module '$env/static/private' {
 	export const _CONDA_EXE: string;
 	export const _CONDA_ROOT: string;
 	export const __PSLockDownPolicy: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -150,9 +145,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		HOST: string;
-		PORT: string;
-		VITE_API_URL: string;
 		ALLUSERSPROFILE: string;
 		Anaconda: string;
 		ANDROID_HOME: string;
@@ -176,9 +168,7 @@ declare module '$env/dynamic/private' {
 		CURSOR_TRACE_ID: string;
 		DIRS_POSITION: string;
 		DriverData: string;
-		EFC_10884: string;
-		FPS_BROWSER_APP_PROFILE_STRING: string;
-		FPS_BROWSER_USER_PROFILE_STRING: string;
+		EFC_11284: string;
 		gcc: string;
 		GIT_ASKPASS: string;
 		GoLand: string;
@@ -192,7 +182,6 @@ declare module '$env/dynamic/private' {
 		LUA_DEV: string;
 		LUA_PATH: string;
 		NODE: string;
-		NODE_ENV: string;
 		npm_config_local_prefix: string;
 		npm_config_user_agent: string;
 		npm_execpath: string;
@@ -243,6 +232,7 @@ declare module '$env/dynamic/private' {
 		_CONDA_EXE: string;
 		_CONDA_ROOT: string;
 		__PSLockDownPolicy: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

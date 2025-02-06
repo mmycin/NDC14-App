@@ -1,4 +1,5 @@
 {
+    "extends": "./dist/tsconfig.json",
     "compilerOptions": {
         "allowJs": true, // Allow JavaScript files in the project
         "checkJs": true, // Enable type-checking for JavaScript files
