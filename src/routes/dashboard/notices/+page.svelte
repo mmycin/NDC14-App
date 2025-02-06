@@ -173,7 +173,7 @@
                         <div class="bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 h-full hover:shadow-lg transition-all duration-300">
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-4">
-                                    <h2 class="text-lg font-medium text-white line-clamp-2 flex-1 mr-2">
+                                    <h2 class="text-lg font-medium text-left text-white line-clamp-2 flex-1 mr-2">
                                         {notice.title}
                                     </h2>
                                     <span class="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-md whitespace-nowrap border border-blue-500/20">
