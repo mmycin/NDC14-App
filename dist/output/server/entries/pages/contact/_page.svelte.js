@@ -30,18 +30,18 @@ function CurrentAdmins($$payload, $$props) {
   var $$store_subs;
   let secondLatestBatchUsers = [];
   store_get($$store_subs ??= {}, "$BASE_URL", BASE_URL);
-  $$payload.out += `<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 py-16 px-6 w-full flex flex-col items-center svelte-1t7omc5"><h1 class="text-4xl font-extrabold text-center mb-6 text-white leading-tight svelte-1t7omc5">Captains of Batch ${escape_html("")}</h1> <p class="text-center text-gray-400 mb-8">For any help, please contact the captains of the group-14</p> `;
+  $$payload.out += `<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 py-16 px-6 w-full flex flex-col items-center svelte-xd6ayh"><h1 class="text-4xl font-extrabold text-center mb-6 text-white leading-tight svelte-xd6ayh">Captains of Batch ${escape_html("")}</h1> <p class="text-center text-gray-400 mb-8">For any help, please contact the captains of the group-14</p> `;
   {
     $$payload.out += "<!--[-->";
-    $$payload.out += `<div class="flex justify-center items-center py-10 svelte-1t7omc5"><div class="loader svelte-1t7omc5"></div></div>`;
+    $$payload.out += `<div class="flex justify-center items-center py-10 svelte-xd6ayh"><div class="loader svelte-xd6ayh"></div></div>`;
   }
   $$payload.out += `<!--]--></section> `;
   if (secondLatestBatchUsers.length > 0) {
     $$payload.out += "<!--[-->";
-    $$payload.out += `<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 py-16 px-6 w-full flex flex-col items-center svelte-1t7omc5"><h1 class="text-4xl font-extrabold text-center mb-6 text-white leading-tight svelte-1t7omc5">Captains of Batch ${escape_html("")}</h1> <p class="text-center text-gray-400 mb-8">For any help, please contact the captains of the group-14</p> `;
+    $$payload.out += `<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 py-16 px-6 w-full flex flex-col items-center svelte-xd6ayh"><h1 class="text-4xl font-extrabold text-center mb-6 text-white leading-tight svelte-xd6ayh">Captains of Batch ${escape_html("")}</h1> <p class="text-center text-gray-400 mb-8">For any help, please contact the captains of the group-14</p> `;
     {
       $$payload.out += "<!--[-->";
-      $$payload.out += `<div class="flex justify-center items-center py-10 svelte-1t7omc5"><div class="loader svelte-1t7omc5"></div></div>`;
+      $$payload.out += `<div class="flex justify-center items-center py-10 svelte-xd6ayh"><div class="loader svelte-xd6ayh"></div></div>`;
     }
     $$payload.out += `<!--]--></section>`;
   } else {

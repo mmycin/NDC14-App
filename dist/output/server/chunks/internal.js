@@ -605,8 +605,8 @@ const options = {
 	<meta property="og:image" content="/ndc.png" />\r
 	<meta property="og:url" content="https://ndc14backend.onrender.com" />\r
 	<!-- <script src="https://cdn.tailwindcss.com"><\/script> -->\r
-	<link rel="stylesheet" href="./tailwind.min.css">\r
-	<script src="./tailwind.js"><\/script>\r
+	<link rel="stylesheet" href="tailwind.min.css">\r
+	<script src=tailwind.js"><\/script>\r
 	\r
 	<style>\r
 		@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');\r
@@ -693,7 +693,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1afoety"
+  version_hash: "5px9em"
 };
 async function get_hooks() {
   let handle;
