@@ -125,7 +125,7 @@
     }
 
     .bg-gradient-to-b {
-        background: theme(colors.blue.400, #111827);
+        background: #111827;
         background-size: 200% 200%;
         animation: gradient-background 10s ease infinite;
     }
